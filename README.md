@@ -2,7 +2,7 @@
 Chrome extension for Sortello
 
 
-#Changelog:
+# Changelog:
 ## 0.0.1 - 2017-06-11
 ### Added
 - Provides a link to Sortello when viewing a Trello board 
