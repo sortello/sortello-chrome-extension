@@ -14,7 +14,6 @@ for (var i = 0; i < lists.length; i++) {
         '</span>' +
         '</a>';
     var extras = list.getElementsByClassName('list-header-extras')[0];
-    console.log(list);
     extras.innerHTML = newElement + extras.innerHTML;
   }
 }
