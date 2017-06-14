@@ -1,3 +1,7 @@
+chrome.webNavigation.onHistoryStateUpdated.addListener(function(details) {
+  chrome.tabs.executeScript(null,{file:"getLists.js"});
+});
+
 chrome.browserAction.disable();
 function handleBrowserAction (tabId) {
   chrome.browserAction.disable();
@@ -15,3 +19,4 @@ function showingTrelloBoard (url) {
   var thisRegex = new RegExp('trello.com/b/');
   return thisRegex.test(url);
 }
+

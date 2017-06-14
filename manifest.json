@@ -3,7 +3,7 @@
 
   "name": "Sortello Chrome Extension",
   "description": "This extension enables integrated access to Sortello from Trello boards",
-  "version": "0.0.1",
+  "version": "0.0.2",
 
   "browser_action": {
     "default_icon": "icon.png"
@@ -13,13 +13,15 @@
   },
   "content_scripts": [
     {
-      "matches": ["https://trello.com/*", "https://www.trello.com/*"],
+      "matches": ["*://trello.com/b/*"],
       "js": ["getLists.js"]
     }
   ],
   "web_accessible_resources": ["icon.png"],
   "permissions": [
+    "*://trello.com/b/*",
     "activeTab",
-    "tabs"
+    "tabs",
+    "webNavigation"
   ]
 }
