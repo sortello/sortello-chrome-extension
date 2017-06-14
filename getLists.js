@@ -7,9 +7,9 @@ for (var i = 0; i < lists.length; i++) {
 
   if (listNotEmpty(lists[i])) {
     var title = list.getElementsByClassName('list-header-name-assist')[0];
-    var listId = boardId + "_|_|_" + title.innerText;
+    var listName =  title.innerText.trim();
 
-    var newElement = '<a class="list-header-extras-menu dark-hover" title="Sort cards with Sortello" target="_blank" href="http://sortello.ideato.it/?_listId='+listId+'">' +
+    var newElement = '<a class="list-header-extras-menu dark-hover" title="Sort cards with Sortello" target="_blank" href="http://sortello.ideato.it/?boardId='+boardId+'&listName='+listName+'">' +
         '<span class="icon-sm" style="background: url(' + chrome.runtime.getURL('icon.png') + '); background-size: contain;">' +
         '</span>' +
         '</a>';
@@ -19,5 +19,5 @@ for (var i = 0; i < lists.length; i++) {
 }
 
 function listNotEmpty (list) {
-  return list.getElementsByClassName('list-card').length > 0;
+  return list.getElementsByClassName('list-card').length > 3;
 }
