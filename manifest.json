@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Sortello Chrome Extension",
   "description": "This extension enables integrated access to Sortello from Trello boards",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "icons": {
     "16": "icon16.png",
     "48": "icon48.png",
@@ -33,6 +33,7 @@
     "*://trello.com/b/*",
     "activeTab",
     "tabs",
-    "webNavigation"
+    "webNavigation",
+    "alarms"
   ]
 }

@@ -1,13 +1,12 @@
-var lists = document.getElementsByClassName('list');
-var boardId = window.location.pathname.replace('/b/', '');
-boardId = boardId.substring(0, boardId.lastIndexOf("/"));
-
-if (firstRun()) {
+function setButtons () {
+  var lists = document.getElementsByClassName('list');
+  var boardId = window.location.pathname.replace('/b/', '');
+  boardId = boardId.substring(0, boardId.lastIndexOf("/"));
 
   for (var i = 0; i < lists.length; i++) {
     var list = lists[i];
 
-    if (listNotEmpty(lists[i])) {
+    if (listNotEmpty(lists[i]) && !listHasButton(list)) {
       var title = list.getElementsByClassName('list-header-name-assist')[0];
       var listName = title.innerText.trim();
 
@@ -18,12 +17,21 @@ if (firstRun()) {
       var extras = list.getElementsByClassName('list-header-extras')[0];
       extras.innerHTML = newElement + extras.innerHTML;
     }
+
+    if(!listNotEmpty(lists[i]) && listHasButton(list)){
+      var toRemove = list.getElementsByClassName('sortello-link')[0];
+      toRemove.parentNode.removeChild(toRemove);
+    }
   }
-}
-function firstRun () {
-  return document.getElementsByClassName('sortello-link').length < 1
 }
 
 function listNotEmpty (list) {
-  return list.getElementsByClassName('list-card').length > 3;
+  return list.getElementsByClassName('list-card').length > 2;
 }
+
+function listHasButton (list) {
+  return list.getElementsByClassName('sortello-link').length > 0;
+}
+
+setButtons();
+setInterval(setButtons, 2500);

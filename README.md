@@ -2,8 +2,6 @@
 Chrome extension for Sortello
 
 # TODO:
-- Should link to the board/list selection view, with current board already selected
-- Should show the current board's lists and link to the sorting page of the selected list
 - Should propose to prioritize only the cards that were added since last use of Sortello on the selected list
 
 # How to contribute:
@@ -16,3 +14,8 @@ Chrome extension for Sortello
 ### Added
 - Provides a link to Sortello when viewing a Trello board 
 - Enables extension when viewing a Trello board
+
+## 0.0.1 - 2017-06-11
+### Added
+- Updates sortello links (on top of lists) periodically
+- Hides link for list with less than 2 cards
