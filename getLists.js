@@ -8,9 +8,13 @@ function setButtons () {
 
     if (listNotEmpty(lists[i]) && !listHasButton(list)) {
       var title = list.getElementsByClassName('list-header-name-assist')[0];
-      var listName = title.innerText.trim();
 
-      var newElement = '<a class="list-header-extras-menu dark-hover sortello-link" title="Sort cards with Sortello" target="_blank" href="http://sortello.ideato.it/?boardId=' + boardId + '&listName=' + listName + '">' +
+      var oneCard = list.querySelectorAll('a.list-card')[0];
+      var oneCardHref = oneCard.href;
+      var oneCardUrl = oneCardHref.replace("https://trello.com/c/", "");
+      var oneCardId = oneCardUrl.replace(/\/(.*)/g, "")
+
+      var newElement = '<a class="list-header-extras-menu dark-hover sortello-link" title="Sort cards with Sortello" target="_blank" href="http://sortello.ideato.it/?extId=' + oneCardId + '">' +
           '<span class="icon-sm" style="background: url(' + chrome.runtime.getURL('icon.png') + '); background-size: contain;">' +
           '</span>' +
           '</a>';
@@ -18,7 +22,7 @@ function setButtons () {
       extras.innerHTML = newElement + extras.innerHTML;
     }
 
-    if(!listNotEmpty(lists[i]) && listHasButton(list)){
+    if (!listNotEmpty(lists[i]) && listHasButton(list)) {
       var toRemove = list.getElementsByClassName('sortello-link')[0];
       toRemove.parentNode.removeChild(toRemove);
     }
