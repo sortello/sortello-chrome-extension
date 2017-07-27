@@ -19,7 +19,7 @@
   "content_scripts": [
     {
       "matches": [
-        "*://trello.com/b/*"
+        "*://trello.com/*"
       ],
       "js": [
         "getLists.js"

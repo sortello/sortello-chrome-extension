@@ -1,8 +1,5 @@
-chrome.webNavigation.onHistoryStateUpdated.addListener(function(details) {
-  chrome.tabs.executeScript(null,{file:"getLists.js"});
-});
-
 chrome.browserAction.disable();
+
 function handleBrowserAction (tabId) {
   chrome.browserAction.disable();
   chrome.tabs.get(tabId, function (tab) {
@@ -11,12 +8,18 @@ function handleBrowserAction (tabId) {
     }
   });
 }
+
+chrome.webNavigation.onHistoryStateUpdated.addListener(function (details) {
+  chrome.browserAction.disable(details.tabId);
+  if (showingTrelloBoard(details.url)) {
+    chrome.browserAction.enable(details.tabId);
+  }
+  chrome.tabs.executeScript(null, {file: "getLists.js"});
+});
+
 chrome.tabs.onActiveChanged.addListener(handleBrowserAction);
-chrome.tabs.onUpdated.addListener(handleBrowserAction);
 
 function showingTrelloBoard (url) {
-
   var thisRegex = new RegExp('trello.com/b/');
   return thisRegex.test(url);
 }
-
