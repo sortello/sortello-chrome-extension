@@ -3,8 +3,7 @@ window.sortello = window.sortello || {interval: null};
 function handleButtons (err, list) {
   if (err) {
     return
-  }
-  ;
+  };
 
   if (listSortable(list) && !listHasButton(list)) {
     addButton(list);
@@ -95,12 +94,14 @@ function setButtons () {
 
   for (var i = 0; i < lists.length; i++) {
     var list = lists[i];
-    cardAppeared(list, handleButtons);
+    if(!buttonIsComplete(list)){
+      cardAppeared(list, handleButtons);
+    }
   }
 }
 
 clearInterval(window.sortello.interval);
 if (showingTrelloBoard()) {
   setButtons();
-  window.sortello.interval = setInterval(setButtons, 2000);
+  window.sortello.interval = setInterval(setButtons, 5000);
 }
