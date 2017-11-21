@@ -1,9 +1,6 @@
 # sortello-chrome-extension
 Chrome extension for Sortello
 
-# TODO:
-- Should propose to prioritize only the cards that were added since last use of Sortello on the selected list
-
 # How to contribute:
 - Clone the repository
 - In Chrome, open extensions view (chrome://extensions/) and check dev mode checkbox.
