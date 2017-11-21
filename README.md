@@ -1,5 +1,7 @@
 # sortello-chrome-extension
-Chrome extension for Sortello
+Chrome extension for Sortello:
+
+[https://chrome.google.com/webstore/detail/sortello-chrome-extension/imiedhifioaeddolanigfdkiifnlmfdh?hl=it](https://chrome.google.com/webstore/detail/sortello-chrome-extension/imiedhifioaeddolanigfdkiifnlmfdh?hl=it)
 
 # How to contribute:
 - Clone the repository
