@@ -53,7 +53,7 @@ function addButton (list) {
   var oneCardUrl = oneCardHref.replace("https://trello.com/c/", "");
   var oneCardId = oneCardUrl.replace(/\/(.*)/g, "")
 
-  var newElement = '<a style="height:19px;" class="list-header-extras-menu dark-hover sortello-link" title="Sort cards with Sortello" target="_blank" href="http://sortello.ideato.it/?extId=' + oneCardId + '">' +
+  var newElement = '<a style="height:19px;" class="list-header-extras-menu dark-hover sortello-link" title="Sort cards with Sortello" target="_blank" href="http://sortello.com/app.html?extId=' + oneCardId + '">' +
       '<span class="icon-sm" style="background: url(' + chrome.runtime.getURL('icon.png') + '); background-size: contain;">' +
       '</span>' +
       '</a>';
