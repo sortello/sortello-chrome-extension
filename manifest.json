@@ -19,10 +19,12 @@
   "content_scripts": [
     {
       "matches": [
-        "*://trello.com/*"
+        "*://trello.com/*",
+		"*://github.com/*"
       ],
       "js": [
-        "getLists.js"
+        "getLists.js",
+		"getListsGithub.js"
       ]
     }
   ],
@@ -31,6 +33,7 @@
   ],
   "permissions": [
     "*://trello.com/b/*",
+	"*://github.com/*",
     "activeTab",
     "tabs",
     "webNavigation",
