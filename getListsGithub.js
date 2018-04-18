@@ -55,7 +55,7 @@ function addButton(list) {
     var oneListId = oneListIdToReplace.replace("column-", "")
     console.log("ID:", oneListId)
 
-    var newElement = '<a style="height:19px; display: block; width: 26px;" class="list-header-extras-menu dark-hover sortello-link" title="Sort cards with Sortello" target="_blank" href="http://localhost:4000/app.html?extId=' + oneListId + '&fw=g">' +
+    var newElement = '<a style="height:19px; display: block; width: 26px; position: absolute; top: 10px; right: 60px;" class="list-header-extras-menu dark-hover sortello-link" title="Sort cards with Sortello" target="_blank" href="http://localhost:4000/app.html?extId=' + oneListId + '&fw=g">' +
         '<span class="icon-sm" style="background: url(' + chrome.runtime.getURL('icon.png') + '); background-size: contain; display: block; height: 19px; width: 19px;">' +
         '</span>' +
         '</a>';
