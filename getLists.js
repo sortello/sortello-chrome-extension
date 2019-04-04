@@ -31,7 +31,7 @@ function cardAppeared (list, cb) {
 
   var interval = setInterval(function () {
     var oneCard = list.querySelectorAll('a.list-card')[0];
-    if (oneCard != null) {
+    if (oneCard != null && oneCard.href.trim().length > 0) {
       clearInterval(interval);
       cb(false, list);
       return;
@@ -52,7 +52,6 @@ function addButton (list) {
   var oneCardHref = oneCard.href;
   var oneCardUrl = oneCardHref.replace("https://trello.com/c/", "");
   var oneCardId = oneCardUrl.replace(/\/(.*)/g, "")
-
   var newElement = '<a style="height:19px;" class="list-header-extras-menu dark-hover sortello-link" title="Sort cards with Sortello" target="_blank" href="http://sortello.com/app.html?extId=' + oneCardId + '">' +
       '<span class="icon-sm" style="background: url(' + chrome.runtime.getURL('icon.png') + '); background-size: contain;">' +
       '</span>' +
