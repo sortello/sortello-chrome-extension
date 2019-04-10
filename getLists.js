@@ -121,5 +121,5 @@ function setButtons () {
 clearInterval(window.sortello.interval);
 if (showingTrelloBoard()) {
   setButtons();
-  window.sortello.interval = setInterval(setButtons, 5000);
+  window.sortello.interval = setInterval(setButtons, 2000);
 }
