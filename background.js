@@ -20,6 +20,6 @@ chrome.webNavigation.onHistoryStateUpdated.addListener(function (details) {
 chrome.tabs.onActiveChanged.addListener(handleBrowserAction);
 
 function showingTrelloBoard (url) {
-  var thisRegex = new RegExp('trello.com/b/');
+  let thisRegex = new RegExp('trello.com/b/');
   return thisRegex.test(url);
 }
