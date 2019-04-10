@@ -69,17 +69,15 @@ function addButton (list) {
 function disableButton (list) {
   let toDisable = list.getElementsByClassName('sortello-link')[0];
   let url = chrome.runtime.getURL('icon-grey.png');
-  console.log("prima");
-  console.log(toDisable.getElementsByClassName("icon-sm")[0].style.background);
-  toDisable.getElementsByClassName("icon-sm")[0].style.background = 'url('+url+')';
-  console.log("dopo");
-  console.log(toDisable.getElementsByClassName("icon-sm")[0].style.background);
+  toDisable.getElementsByClassName("icon-sm")[0].style.backgroundImage = 'url('+url+')';
   toDisable.href="#";
 }
 
 function enableButton (list) {
   let toEnable = list.getElementsByClassName('sortello-link')[0];
   let oneCardId = getCardId(list);
+  let url = chrome.runtime.getURL('icon.png');
+  toEnable.getElementsByClassName("icon-sm")[0].style.backgroundImage = 'url('+url+')';
   toEnable.href="http://sortello.com/app.html?extId=" + oneCardId;
 }
 
