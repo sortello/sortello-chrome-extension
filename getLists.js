@@ -59,7 +59,7 @@ function getCardId(list){
 function addButton (list) {
   let oneCardId = getCardId(list);
   let newElement = '<a style="height:19px;" class="list-header-extras-menu dark-hover sortello-link" title="Sort cards with Sortello" target="_blank" href="http://sortello.com/app.html?extId=' + oneCardId + '">' +
-      '<span class="icon-sm" style="background: url(' + chrome.runtime.getURL('icon.png') + '); background-size: contain;">' +
+      '<span class="icon-sm" style="background: url(' + chrome.runtime.getURL('icon.png') + '); background-size: contain;" title="Prioritize with Sortello now!">' +
       '</span>' +
       '</a>';
   let extras = list.getElementsByClassName('list-header-extras')[0];
@@ -70,6 +70,7 @@ function disableButton (list) {
   let toDisable = list.getElementsByClassName('sortello-link')[0];
   let url = chrome.runtime.getURL('icon-grey.png');
   toDisable.getElementsByClassName("icon-sm")[0].style.backgroundImage = 'url('+url+')';
+  toDisable.getElementsByClassName("icon-sm")[0].title = "Not enough cards on list found, please add more than 1 card!";
   toDisable.href="#";
 }
 
@@ -78,6 +79,8 @@ function enableButton (list) {
   let oneCardId = getCardId(list);
   let url = chrome.runtime.getURL('icon.png');
   toEnable.getElementsByClassName("icon-sm")[0].style.backgroundImage = 'url('+url+')';
+  toEnable.getElementsByClassName("icon-sm")[0].title = "Prioritize with Sortello now!";
+
   toEnable.href="http://sortello.com/app.html?extId=" + oneCardId;
 }
 
