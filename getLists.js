@@ -51,9 +51,14 @@ function cardAppeared (list, cb) {
 
 function getCardId(list){
   let oneCard = list.querySelectorAll('a.list-card')[0];
-  let oneCardHref = oneCard.href;
-  let oneCardUrl = oneCardHref.replace("https://trello.com/c/", "");
-  return oneCardUrl.replace(/\/(.*)/g, "");
+  if(oneCard !== undefined){
+    let oneCardHref = oneCard.href;
+    let oneCardUrl = oneCardHref.replace("https://trello.com/c/", "");
+    return oneCardUrl.replace(/\/(.*)/g, "");
+  }else{
+    return "#";
+  }
+
 }
 
 function addButton (list) {
