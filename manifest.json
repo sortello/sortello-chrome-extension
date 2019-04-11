@@ -21,6 +21,7 @@
       "matches": [
         "*://trello.com/*"
       ],
+      "css": ["style.css"],
       "js": [
         "getLists.js"
       ]
