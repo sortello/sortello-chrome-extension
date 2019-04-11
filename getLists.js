@@ -7,18 +7,8 @@ function handleButtons (err, list) {
 
   if (!listHasButton(list)) {
     addButton(list);
-  }
-
-  if (!listSortable(list) && listHasButton(list)) {
-    disableButton(list);
-  }
-
-  if (listSortable(list) && listHasButton(list)) {
-    enableButton(list);
-  }
-
-  if (listSortable(list) && !listHasButton(list) && !buttonIsComplete(list)) {
-    disableButton(list);
+  }else{
+    modifyButton(list,listSortable(list));
   }
 }
 
@@ -71,22 +61,13 @@ function addButton (list) {
   extras.innerHTML = newElement + extras.innerHTML;
 }
 
-function disableButton (list) {
-  let toDisable = list.getElementsByClassName('sortello-link')[0];
-  let url = chrome.runtime.getURL('icon-grey.png');
-  toDisable.getElementsByClassName("icon-sm")[0].style.backgroundImage = 'url('+url+')';
-  toDisable.href="#";
-  toDisable.setAttribute('tooltip', "Add more than 1 card please!");
-}
-
-function enableButton (list) {
-  let toEnable = list.getElementsByClassName('sortello-link')[0];
+function modifyButton(list,sortable){
+  let button = list.getElementsByClassName('sortello-link')[0];
+  let url = sortable? chrome.runtime.getURL('icon.png') : chrome.runtime.getURL('icon-grey.png');
   let oneCardId = getCardId(list);
-  let url = chrome.runtime.getURL('icon.png');
-  toEnable.getElementsByClassName("icon-sm")[0].style.backgroundImage = 'url('+url+')';
-  toEnable.getElementsByClassName("icon-sm")[0].title = "Prioritize with Sortello now!";
-  toEnable.href= "http://sortello.com/app.html?extId=" + oneCardId;
-  toEnable.setAttribute('tooltip', "Prioritize with Sortello now!");
+  button.getElementsByClassName("icon-sm")[0].style.backgroundImage = 'url('+url+')';
+  button.href= sortable? "http://sortello.com/app.html?extId=" + oneCardId : "#";
+  button.setAttribute('tooltip', sortable? "Prioritize with Sortello now!":"Add more than 1 card please!");
 }
 
 function listSortable (list) {
