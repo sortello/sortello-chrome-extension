@@ -21,16 +21,13 @@
       "matches": [
         "*://trello.com/*"
       ],
-      "css": ["style.css"],
       "js": [
         "getLists.js"
       ]
     }
   ],
   "web_accessible_resources": [
-    "icon.png",
-    "icon-grey.png",
-    "icon-grey2.png"
+    "icon.png"
   ],
   "permissions": [
     "*://trello.com/b/*",

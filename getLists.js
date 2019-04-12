@@ -39,21 +39,18 @@ function cardAppeared (list, cb) {
 
 }
 
-function getCardId(list){
+function getCardId(list) {
   let oneCard = list.querySelectorAll('a.list-card')[0];
-  if(oneCard !== undefined){
+  if (oneCard !== undefined) {
     let oneCardHref = oneCard.href;
     let oneCardUrl = oneCardHref.replace("https://trello.com/c/", "");
     return oneCardUrl.replace(/\/(.*)/g, "");
-  }else{
-    return "#";
   }
-
 }
 
 function addButton (list) {
   let oneCardId = getCardId(list);
-  let newElement = '<a tooltip="#" style="height:19px;" class="list-header-extras-menu dark-hover sortello-link" title="Sort cards with Sortello" target="_blank" href="http://sortello.com/app.html?extId=' + oneCardId + '">' +
+  let newElement = '<a style="height:19px;" class="list-header-extras-menu dark-hover sortello-link" title="Sort cards with Sortello" target="_blank" href="http://sortello.com/app.html?extId=' + oneCardId + '">' +
       '<span class="icon-sm" style="background: url(' + chrome.runtime.getURL('icon.png') + '); background-size: contain;" title="Prioritize with Sortello now!">' +
       '</span>' +
       '</a>';
@@ -63,11 +60,8 @@ function addButton (list) {
 
 function modifyButton(list,sortable){
   let button = list.getElementsByClassName('sortello-link')[0];
-  let url = sortable? chrome.runtime.getURL('icon.png') : chrome.runtime.getURL('icon-grey.png');
   let oneCardId = getCardId(list);
-  button.getElementsByClassName("icon-sm")[0].style.backgroundImage = 'url('+url+')';
-  button.href= sortable? "http://sortello.com/app.html?extId=" + oneCardId : "#";
-  button.setAttribute('tooltip', sortable? "Prioritize with Sortello now!":"Add more than 1 card please!");
+  button.href= sortable? "http://sortello.com/app.html?extId=" + oneCardId : "http://sortello.com/app.html?extId=undefined";
 }
 
 function listSortable (list) {
