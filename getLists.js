@@ -3,34 +3,27 @@ window.sortello = window.sortello || {interval: null};
 function handleButtons (err, list) {
   if (err) {
     return
-  };
-  if (listSortable(list) && !listHasButton(list)) {
-    addButton(list);
   }
 
-
-  if (!listSortable(list) && listHasButton(list)) {
-    removeButton(list);
-  }
-
-  if (listSortable(list) && !listHasButton(list) && !buttonIsComplete(list)) {
-    removeButton(list);
+  if (!listHasButton(list)) {
     addButton(list);
+  }else{
+    modifyButton(list,listSortable(list));
   }
 }
 
 function cardAppeared (list, cb) {
 
-  var i = 10;
+  let i = 10;
 
   if (!listSortable(list)) {
     cb(false, list);
     return;
   }
 
-  var interval = setInterval(function () {
-    var oneCard = list.querySelectorAll('a.list-card')[0];
-    if (oneCard != null) {
+  let interval = setInterval(function () {
+    let oneCard = list.querySelectorAll('a.list-card')[0];
+    if (oneCard != null && oneCard.href.trim().length > 0) {
       clearInterval(interval);
       cb(false, list);
       return;
@@ -46,26 +39,33 @@ function cardAppeared (list, cb) {
 
 }
 
+function getCardId(list) {
+  let oneCard = list.querySelectorAll('a.list-card')[0];
+  if (oneCard !== undefined) {
+    let oneCardHref = oneCard.href;
+    let oneCardUrl = oneCardHref.replace("https://trello.com/c/", "");
+    return oneCardUrl.replace(/\/(.*)/g, "");
+  }
+}
+
 function addButton (list) {
-  var oneCard = list.querySelectorAll('a.list-card')[0];
-  var oneCardHref = oneCard.href;
-  var oneCardUrl = oneCardHref.replace("https://trello.com/c/", "");
-  var oneCardId = oneCardUrl.replace(/\/(.*)/g, "")
-  var newElement = '<a style="height:19px;" class="list-header-extras-menu dark-hover sortello-link" title="Sort cards with Sortello" target="_blank" href="http://sortello.com/app.html?extId=' + oneCardId + '&fw=t">' +
-      '<span class="icon-sm" style="background: url(' + chrome.runtime.getURL('icon.png') + '); background-size: contain;">' +
+  let oneCardId = getCardId(list);
+  let newElement = '<a style="height:19px;" class="list-header-extras-menu dark-hover sortello-link" title="Sort cards with Sortello" target="_blank" href="http://sortello.com/app.html?extId=' + oneCardId + '&fw=t">' +
+      '<span class="icon-sm" style="background: url(' + chrome.runtime.getURL('icon.png') + '); background-size: contain;" title="Prioritize with Sortello now!">' +
       '</span>' +
       '</a>';
-  var extras = list.getElementsByClassName('list-header-extras')[0];
+  let extras = list.getElementsByClassName('list-header-extras')[0];
   extras.innerHTML = newElement + extras.innerHTML;
 }
 
-function removeButton (list) {
-  var toRemove = list.getElementsByClassName('sortello-link')[0];
-  toRemove.parentNode.removeChild(toRemove);
+function modifyButton(list,sortable){
+  let button = list.getElementsByClassName('sortello-link')[0];
+  let oneCardId = getCardId(list);
+  button.href= sortable? "http://sortello.com/app.html?extId=" + oneCardId +"&fw=t" : "http://sortello.com/app.html?extId=undefined&fw=t";
 }
 
 function listSortable (list) {
-  return list.getElementsByClassName('list-card').length >= 2;
+  return list.getElementsByClassName('list-card js-member-droppable').length >= 2;
 }
 
 function listHasButton (list) {
@@ -73,25 +73,25 @@ function listHasButton (list) {
 }
 
 function buttonIsComplete (list) {
-  var suffix = 'extId=';
-  var sortelloLink = list.getElementsByClassName('sortello-link');
+  let suffix = 'extId=';
+  let sortelloLink = list.getElementsByClassName('sortello-link');
   if (sortelloLink.href === undefined) {
     return false
   }
   return sortelloLink.href.indexOf(suffix, this.length - suffix.length) !== -1;
 }
 
-function showingTrelloBoard2 () {
-  var url = window.location.href;
-  var thisRegex = new RegExp('trello.com/b/');
+function showingTrelloBoard () {
+  let url = window.location.href;
+  let thisRegex = new RegExp('trello.com/b/');
   return thisRegex.test(url);
 }
 
 function setButtons () {
-  var lists = document.getElementsByClassName('list');
+  let lists = document.getElementsByClassName('list');
 
-  for (var i = 0; i < lists.length; i++) {
-    var list = lists[i];
+  for (let i = 0; i < lists.length; i++) {
+    let list = lists[i];
     if(!buttonIsComplete(list)){
       cardAppeared(list, handleButtons);
     }
@@ -99,7 +99,7 @@ function setButtons () {
 }
 
 clearInterval(window.sortello.interval);
-if (showingTrelloBoard2()) {
+if (showingTrelloBoard()) {
   setButtons();
-  window.sortello.interval = setInterval(setButtons, 5000);
+  window.sortello.interval = setInterval(setButtons, 2000);
 }
