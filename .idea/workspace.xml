@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="55a58692-af97-4f59-9fd8-a63959e7f9fd" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/background.js" beforeDir="false" afterPath="$PROJECT_DIR$/background.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/getLists.js" beforeDir="false" afterPath="$PROJECT_DIR$/getLists.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/getListsGithub.js" beforeDir="false" afterPath="$PROJECT_DIR$/getListsGithub.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,7 +33,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/getLists.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
+            <state relative-caret-position="183">
               <caret line="25" column="23" lean-forward="true" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="23" />
               <folding>
                 <element signature="n#style#0;n#a#0;n#!!top" expanded="true" />
@@ -49,8 +46,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/getListsGithub.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
-              <caret line="18" column="46" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="46" />
+            <state relative-caret-position="154">
+              <caret line="54" column="52" selection-start-line="54" selection-start-column="52" selection-end-line="54" selection-end-column="52" />
               <folding>
                 <element signature="n#style#0;n#a#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#a#0;n#!!top" expanded="true" />
@@ -140,12 +137,12 @@
       <workItem from="1548064430340" duration="2650000" />
       <workItem from="1548070252033" duration="5673000" />
       <workItem from="1556022097020" duration="1711000" />
-      <workItem from="1556108547967" duration="704000" />
+      <workItem from="1556108547967" duration="1028000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10738000" />
+    <option name="totallyTimeSpent" value="11062000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="947" extended-state="6" />
@@ -196,7 +193,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/getLists.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
+        <state relative-caret-position="183">
           <caret line="25" column="23" lean-forward="true" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="23" />
           <folding>
             <element signature="n#style#0;n#a#0;n#!!top" expanded="true" />
@@ -207,8 +204,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/getListsGithub.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="18" column="46" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="46" />
+        <state relative-caret-position="154">
+          <caret line="54" column="52" selection-start-line="54" selection-start-column="52" selection-end-line="54" selection-end-column="52" />
           <folding>
             <element signature="n#style#0;n#a#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#a#0;n#!!top" expanded="true" />

@@ -52,7 +52,7 @@ function modifyButtonGithub(list, sortable){
     let oneListIdToReplace = list.id;
     let oneListId = oneListIdToReplace.replace("column-", "")
     let button = list.getElementsByClassName('sortello-link')[0];
-    button.href= sortable? "http://sortello.com/app.html?extId=" + oneListId +"&fw=g" : "http://sortello.com/app.html?extId=undefined&fw=g";
+    button.href= sortable? "https://sortello.com/app.html?extId=" + oneListId +"&fw=g" : "https://sortello.com/app.html?extId=undefined&fw=g";
 }
 
 
