@@ -61,7 +61,7 @@ function addButton (list) {
 function modifyButton(list,sortable){
   let button = list.getElementsByClassName('sortello-link')[0];
   let oneCardId = getCardId(list);
-  button.href= sortable? "http://sortello.com/app.html?extId=" + oneCardId +"&fw=t" : "http://sortello.com/app.html?extId=undefined&fw=t";
+  button.href= sortable? "http://sortello.com/app.html?extId=" + oneCardId +"&fw=t" : "http://sortello.com/app.html?extId=error&fw=t";
 }
 
 function listSortable (list) {
