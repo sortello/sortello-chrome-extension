@@ -33,7 +33,6 @@
     "*://trello.com/b/*",
     "activeTab",
     "tabs",
-    "webNavigation",
-    "alarms"
+    "webNavigation"
   ]
 }
